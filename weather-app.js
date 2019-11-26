@@ -4,6 +4,8 @@ window.addEventListener('load', ()=> {
   let tempDesc = document.querySelector('.temp-description');
   let tempDegree = document.querySelector('.temp-degree');
   let locChoice = document.querySelector('.location-choice');
+  let degreeSection = document.querySelector('.degree-section');
+  const tempSpan = document.querySelector('.degree-section span')
 
 
   if (navigator.geolocation) {
@@ -24,8 +26,27 @@ window.addEventListener('load', ()=> {
         tempDegree.textContent = temperature;
         tempDesc.textContent = summary;
         locChoice.textContent = data.timezone;
+
+        //forular to covert to celsius
+        let celsius = (temperature - 32) * (5 / 9)
+
+
         // set icon to the current weather.
         setIcons(icon, document.querySelector('.icon'));
+
+
+        //click able temperature that allows the user to switch between celsius and fahrenheit
+        degreeSection.addEventListener('click', () =>{
+          if (tempSpan.textContent === "F") {
+            tempSpan.textContent = "C"
+            tempDegree.textContent = celsius
+          }
+          else {
+            tempSpan.textContent = "F"
+          }
+        });
+
+
       });
     });
   }
