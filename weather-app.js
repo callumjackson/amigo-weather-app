@@ -24,11 +24,15 @@ window.addEventListener('load', ()=> {
         tempDegree.textContent = temperature;
         tempDesc.textContent = summary;
         locChoice.textContent = data.timezone;
+        // set icon to the current weather.
+        setIcons(icon, document.querySelector('.icon'));
       });
     });
   }
    function setIcons(icon, iconID){
-     const skycons - new skycons({color: while});
-     const currentIcon = 
+     const skycons = new Skycons({color: "white"});
+     const currentIcon = icon.replace(/-/g, "_").toUpperCase(); // this removes the - in the skycon file and replaces it with _ as well as makes it everything uppercase to match the api
+     skycons.play();
+     return skycons.set(iconID, skycons[currentIcon]);
    }
 });
