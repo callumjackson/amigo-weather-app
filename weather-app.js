@@ -33,6 +33,6 @@ window.addEventListener('load', ()=> {
      const skycons = new Skycons({color: "white"});
      const currentIcon = icon.replace(/-/g, "_").toUpperCase(); // this removes the - in the skycon file and replaces it with _ as well as makes it everything uppercase to match the api
      skycons.play();
-     return skycons.set(iconID, skycons[currentIcon]);
+     return skycons.set(iconID, Skycons[currentIcon]);
    }
 });
